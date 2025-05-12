@@ -30,6 +30,7 @@ for TAG in ${LATEST_TAGS[@]} ${MONTHLY_TAGS[@]}; do
     TAGS=( "${TAGS[@]/$TAG}" )
 done
 
+set +e
 for TAG in ${TAGS[@]}; do
     echo "Deleting ${TAG}"
     gh release delete --cleanup-tag --yes "${TAG}"
